@@ -4,10 +4,10 @@
 
 ## linux
 
-* [内存](linux/untitled-1.md)
+* [内存](linux/memory.md)
 * [network](linux/network/README.md)
-  * [socket](linux/network/untitled/README.md)
-    * [image](linux/network/untitled/untitled.md)
+  * [socket](linux/network/socket/README.md)
+    * [image](linux/network/socket/image.md)
 * [Untitled](linux/untitled.md)
 
 ## network
