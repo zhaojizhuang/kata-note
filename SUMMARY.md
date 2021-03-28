@@ -4,13 +4,10 @@
 
 ## linux
 
+* [network](linux/network-1.md)
 * [Untitled](linux/untitled.md)
 
 ## network
 
 * [Untitled](network/untitled.md)
-
----
-
-* [network](network-1.md)
 
