@@ -5,9 +5,9 @@
 ## linux
 
 * [内存](linux/untitled-1.md)
-* [network](linux/network-1/README.md)
-  * [socket](linux/network-1/untitled/README.md)
-    * [image](linux/network-1/untitled/untitled.md)
+* [network](linux/network/README.md)
+  * [socket](linux/network/untitled/README.md)
+    * [image](linux/network/untitled/untitled.md)
 * [Untitled](linux/untitled.md)
 
 ## network
