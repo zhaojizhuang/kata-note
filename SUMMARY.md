@@ -26,5 +26,5 @@
 
 ## 工具合集 <a id="tools"></a>
 
-* [压测](tools/hey.md)
+* [压测 hey](tools/hey.md)
 
