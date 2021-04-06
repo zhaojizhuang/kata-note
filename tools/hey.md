@@ -46,12 +46,17 @@ EOF
 kubectl create -f hey.yaml
 ```
 
-等待 Pod Ready 后
+等待 Pod Ready 后执行
 
 ```yaml
 kubectl exec -it hey bash
 
 root@hey:/# hey -n 10 -c 2 'https://json-head.now.sh/'
+```
+
+结果
+
+```yaml
 
 Summary:
   Total:	4.7720 secs
