@@ -11,7 +11,8 @@
 
 ## 2. 监控
 
-
-`$ kubectl apply -f https://raw.githubusercontent.com/kata-containers/kata-containers/main/docs/how-to/data/kata-monitor-daemonset.yml`
-[Kata 2.0 Metrics Design](https://github.com/kata-containers/kata-containers/blob/main/docs/design/kata-2-0-metrics.md)
-[monitor Kata Containers in Kubernetes](https://github.com/kata-containers/kata-containers/blob/main/docs/how-to/how-to-set-prometheus-in-k8s.md)
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kata-containers/kata-containers/main/docs/how-to/data/kata-monitor-daemonset.yml
+```
+2. [Kata 2.0 Metrics Design](https://github.com/kata-containers/kata-containers/blob/main/docs/design/kata-2-0-metrics.md)
+3. [monitor Kata Containers in Kubernetes](https://github.com/kata-containers/kata-containers/blob/main/docs/how-to/how-to-set-prometheus-in-k8s.md)
