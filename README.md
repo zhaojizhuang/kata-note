@@ -1,8 +1,10 @@
 ---
-description: 个人学习总结
+kata 相关笔记
 ---
 
 # 个人笔记
 
-[https://github.com/zhaojizhuang/note/compare/main...master](https://github.com/zhaojizhuang/note/compare/master...main)
-
+- [kata container 安装部署](kata/install.md)
+- [可观测性](kata/observability.md)
+- [轻量虚拟化相关组件](kata/guest-asserts.md)
+- [kata 启动 trace](kata/trace.md)
