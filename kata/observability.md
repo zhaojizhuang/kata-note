@@ -11,8 +11,23 @@
 
 ## 2. 监控
 
+> 前提是部署好 prometheus 和 grafana
+
+### 1. 部署 kata-monitor
+
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kata-containers/kata-containers/main/docs/how-to/data/kata-monitor-daemonset.yml
 ```
+
+
+### 2. 配置 Grafana dashboard 面板 
+
+导入 `https://raw.githubusercontent.com/kata-containers/kata-containers/main/docs/how-to/data/dashboard.json` dashboard
+
+## kata 支持的 指标 
+
+
+`https://github.com/kata-containers/kata-containers/blob/main/docs/design/kata-2-0-metrics.md`
+
 2. [Kata 2.0 Metrics Design](https://github.com/kata-containers/kata-containers/blob/main/docs/design/kata-2-0-metrics.md)
 3. [monitor Kata Containers in Kubernetes](https://github.com/kata-containers/kata-containers/blob/main/docs/how-to/how-to-set-prometheus-in-k8s.md)
