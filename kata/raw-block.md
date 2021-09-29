@@ -118,6 +118,16 @@ kubectl exec -it busybox-vm-block sh
 
 / # ls -al /dev/xvda
 brw-rw----    1 root     disk        8,   0 Sep 29 03:35 /dev/xvda
+
+/ # stat /dev/xvda
+  File: /dev/xvda
+  Size: 0         	Blocks: 0          IO Block: 4096   block special file
+Device: 2bh/43d	Inode: 16          Links: 1     Device type: 8,0
+Access: (0660/brw-rw----)  Uid: (    0/    root)   Gid: (    6/    disk)
+Access: 2021-09-29 03:35:09.023481491 +0000
+Modify: 2021-09-29 03:35:09.023481491 +0000
+Change: 2021-09-29 03:35:09.023481491 +0000
+
 ```
 
 
