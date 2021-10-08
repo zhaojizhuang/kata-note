@@ -85,6 +85,31 @@ service Task {
 
 OCI 定义的数据在 `/var/run/containerd/io.containerd.runtime.v2.task/k8s.io/<task ID>/config.json`
 
+bundle path 中的文件
+- sandbox
+
+```bash
+ls -al /var/run/containerd/io.containerd.runtime.v2.task/k8s.io/<task ID>/
+-rw-r--r--  1 root root   89 Oct  8 15:19 address
+-rw-r--r--  1 root root 4674 Oct  8 15:19 config.json
+prwx------  1 root root    0 Oct  8 15:19 log
+drwxr-xr-x  1 root root 4096 Oct  8 15:19 rootfs
+lrwxrwxrwx  1 root root  121 Oct  8 15:19 work -> /var/lib/containerd/io.containerd.runtime.v2.task/k8s.io/08ea62447079a5b95d6493d82a5d0253fda5b03130abab74d400e45bba725511
+```
+
+- containerd
+
+```bash
+ls -al /var/run/containerd/io.containerd.runtime.v2.task/k8s.io/<task ID>/
+-rw-r--r--  1 root root   89 Oct  8 15:19 address
+-rw-r--r--  1 root root 8373 Oct  8 15:19 config.json
+prwx------  1 root root    0 Oct  8 15:19 log
+-rw-r--r--  1 root root  101 Oct  8 15:19 monitor_address
+drwxr-xr-x  1 root root 4096 Oct  8 15:19 rootfs
+-rw-r--r--  1 root root    6 Oct  8 15:19 shim.pid
+lrwxrwxrwx  1 root root  121 Oct  8 15:19 work -> /var/lib/containerd/io.containerd.runtime.v2.task/k8s.io/42c9241c910025e35858d44af039b94f58732f77876f2c1ef99c7a3a65bfd33c
+```
+
 具体参见 [config.json](data/config(oci%20spec).json)
 
 ## containerd-shim-kata-v2 流程
