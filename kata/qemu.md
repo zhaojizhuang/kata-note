@@ -117,10 +117,10 @@ kata-containers [QEMU patches](https://github.com/kata-containers/kata-container
 -object memory-backend-file,id=mem0,mem-path=/opt/kata/share/kata-containers/kata-clearlinux-latest.image,size=268435456,readonly=on 
 -device nvdimm,id=nv0,memdev=mem0,unarmed=on 
 # 添加内存 
+# nvdimm 是一种断电后依然可以保存数据的内存模块,用于提供虚拟机的根文件系统
 
 -object memory-backend-file,id=dimm1,size=2048M,mem-path=/dev/shm,share=on 
 -numa node,memdev=dimm1 
 # 添加 numa 模拟
-
 
 ```
