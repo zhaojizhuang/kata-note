@@ -85,7 +85,7 @@
     "path": "rootfs",
     "readonly": true
   },
-  "hostname": "busybox-vm",
+  "hostname": "busybox-vm-block",
   "mounts": [
     {
       "destination": "/proc",
@@ -157,7 +157,7 @@
     {
       "destination": "/dev/shm",
       "type": "bind",
-      "source": "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/1adfe8dd45a4db6227d87726fd56aaa3e98cfe78bcb90d351510c2a6e00d2d04/shm",
+      "source": "/run/containerd/io.containerd.grpc.v1.cri/sandboxes/6d13f0bd0948e3374ce4f27e2175991eee11c798799c21c6b7e1b802be31a197/shm",
       "options": [
         "rbind",
         "ro"
@@ -166,7 +166,7 @@
     {
       "destination": "/etc/resolv.conf",
       "type": "bind",
-      "source": "/var/lib/containerd/io.containerd.grpc.v1.cri/sandboxes/1adfe8dd45a4db6227d87726fd56aaa3e98cfe78bcb90d351510c2a6e00d2d04/resolv.conf",
+      "source": "/var/lib/containerd/io.containerd.grpc.v1.cri/sandboxes/6d13f0bd0948e3374ce4f27e2175991eee11c798799c21c6b7e1b802be31a197/resolv.conf",
       "options": [
         "rbind",
         "ro"
@@ -175,9 +175,9 @@
   ],
   "annotations": {
     "io.kubernetes.cri.container-type": "sandbox",
-    "io.kubernetes.cri.sandbox-id": "1adfe8dd45a4db6227d87726fd56aaa3e98cfe78bcb90d351510c2a6e00d2d04",
-    "io.kubernetes.cri.sandbox-log-directory": "/var/log/pods/default_busybox-vm_f6ca0b20-bc8d-4cdc-a5a0-00ebf9680ce3",
-    "io.kubernetes.cri.sandbox-name": "busybox-vm",
+    "io.kubernetes.cri.sandbox-id": "6d13f0bd0948e3374ce4f27e2175991eee11c798799c21c6b7e1b802be31a197",
+    "io.kubernetes.cri.sandbox-log-directory": "/var/log/pods/default_busybox-vm-block_6238ee26-3503-42c4-a895-ec71ae535235",
+    "io.kubernetes.cri.sandbox-name": "busybox-vm-block",
     "io.kubernetes.cri.sandbox-namespace": "default"
   },
   "linux": {
@@ -192,7 +192,7 @@
         "shares": 2
       }
     },
-    "cgroupsPath": "/kubepods/besteffort/podf6ca0b20-bc8d-4cdc-a5a0-00ebf9680ce3/1adfe8dd45a4db6227d87726fd56aaa3e98cfe78bcb90d351510c2a6e00d2d04",
+    "cgroupsPath": "/kubepods/burstable/pod6238ee26-3503-42c4-a895-ec71ae535235/6d13f0bd0948e3374ce4f27e2175991eee11c798799c21c6b7e1b802be31a197",
     "namespaces": [
       {
         "type": "pid"
@@ -208,7 +208,7 @@
       },
       {
         "type": "network",
-        "path": "/var/run/netns/cni-6e2bdd0f-5011-3a3b-9856-aa891e8f564e"
+        "path": "/var/run/netns/cni-28b33c90-0e16-b719-ca6f-c5d2bc812cb0"
       }
     ],
     "seccomp": {
