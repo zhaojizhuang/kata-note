@@ -8,11 +8,19 @@
 
 参考 [Install Kata Containers with containerd](https://github.com/kata-containers/kata-containers/blob/main/docs/install/container-manager/containerd/containerd-install.md)
 
-下载
+下载安装 containerd
+```bash
+wget https://github.com/containerd/containerd/releases/download/v1.5.7/cri-containerd-cni-1.5.7-linux-amd64.tar.gz
+
+tar xvzf cri-containerd-cni-1.5.7-linux-amd64.tar.gz -C /
 ```
-wget -P / https://github.com/kata-containers/kata-containers/releases/download/2.2.0/kata-static-2.2.0-x86_64.tar.xz
-cd /
-tar xf kata-static-2.2.0-x86_64.tar.xz
+
+
+下载 kata-containers
+```
+wget  https://github.com/kata-containers/kata-containers/releases/download/2.2.1/kata-static-2.2.1-x86_64.tar.xz
+
+tar xf kata-static-2.2.1-x86_64.tar.xz -C /
 ```
 
 将路径 `/opt/kata/bin` 添加到 系统PATH
@@ -85,4 +93,20 @@ spec:
     imagePullPolicy: IfNotPresent
     name: busybox
   restartPolicy: Always
+```
+
+## 部分坑
+
+```bash
+/usr/bin/containerd: symbol lookup error: /usr/bin/containerd: undefined symbol: seccomp_api_set
+```
+
+**解决方法**
+
+`/etc/apt/source.list` 中添加 `deb http://deb.debian.org/debian buster-backports main contrib non-free`
+
+然后执行
+```bash
+apt update
+apt-get -t buster-backports install libseccomp2 libseccomp-dev
 ```
