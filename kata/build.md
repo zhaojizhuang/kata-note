@@ -51,7 +51,9 @@ rustup target add x86_64-unknown-linux-musl
 ## 2. kata-containers 代码下载
 
 ```bash
-cd $GOPATH/src
+mkdir -p $GOPATH/src/github.com/kata-containers
+cd $GOPATH/src/github.com/kata-containers/kata-containers
+
 git clone git@github.com:kata-containers/kata-containers.git
 ```
 
@@ -65,7 +67,75 @@ make build-all
 
 ## 4. 单独编译
 
+### 1. 编译 kata-runtime 相关二进制可执行文件
+
+此步骤会编译
+- 二进制可执行文件
+  - kata-runtime
+  - containerd-shim-kata-v2
+  - kata-monitor
+  - kata-netmon
+- configuration.toml 文件
+
+
+```bash
+cd $GOPATH/src/github.com/kata-containers/kata-containers/src/runtime
+make
+```
+
+### 2. 编译 kata-agent
+
+```bash
+cd $GOPATH/src/github.com/kata-containers/kata-containers/src/agent
+make 
+
+```
+
+### 3. 编译 rootfs
+
+```bash
+
+export distro=clearlinux # 可选项 alpine, centos, clearlinux, debian, euleros, fedora, suse,  ubuntu
+export ROOTFS_DIR=${GOPATH}/src/github.com/kata-containers/kata-containers/tools/osbuilder/rootfs-builder/rootfs
+sudo rm -rf ${ROOTFS_DIR}
+cd $GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/rootfs-builder
+script -fec 'sudo -E GOPATH=$GOPATH USE_DOCKER=true SECCOMP=no ./rootfs.sh ${distro}'
+
+# 如果要编译带有 console 的镜像则执行如下命令
+# script -fec 'USE_DOCKER=true EXTRA_PKGS="bash coreutils" ./rootfs.sh centos'
+```
+
+### 4. 编译 rootfs 镜像
+
+```bash
+cd $GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/image-builder
+script -fec 'sudo -E USE_DOCKER=true ./image_builder.sh ${ROOTFS_DIR}'
+```
+
+## 调试 agent
+
+```bash
+#!/usr/bin/bash
+
+agent="$GOPATH/src/github.com/kata-containers/kata-containers/src/agent/target/x86_64-unknown-linux-musl/release/kata-agent"
+img="$(realpath /data00/kata/share/kata-containers/kata-containers.img)"
+
+dev="$(sudo losetup --show -f -P "$img")"
+echo "$dev"
+
+part="${dev}p1"
+
+sudo mount $part /mnt
+
+sudo install -b $agent /mnt/usr/bin/kata-agent
+
+sudo umount /mnt
+
+sudo losetup -d "$dev"
+```
+
 
 ## 参考
 
 https://blog.csdn.net/u010827484/article/details/117488293
+https://github.com/kata-containers/kata-containers/blob/main/docs/Developer-Guide.md
