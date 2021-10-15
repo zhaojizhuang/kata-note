@@ -22,7 +22,7 @@ kata 相关笔记
 
 1. [Kata-Containers-The-way-to-run-virtualized-containers](pdfs/Kata-Containers-The-way-to-run-virtualized-containers.pdf)
 2. [云原生技术生态和趋势及英特尔如何助力云原生技术](pdfs/云原生技术生态和趋势及英特尔如何助力云原生技术.pdf)
-3. [kata support vGPU](pdfs/kata-support-vGPU.pdf)
+3. [通过kata容器在kubernetes集群中支持vGPU(腾讯)](pdfs/kata-support-vGPU.pdf)
 4. [Kata Containers在百度智能云的应用实践.pdf](pdfs/Kata-Containers在百度智能云的应用实践.pdf)
 5. [Kata containers: when virtualization meets cloud native](pdfs/when-virtualization-meets-cloud-native.pdf)
 6. [Meetup-Cloud-Hypervisor-or-Cloud-Native-Hypervisor](pdfs/Meetup-Cloud-Hypervisor-or-Cloud-Native-Hypervisor.pdf)
