@@ -15,7 +15,7 @@ kata 相关笔记
 - [vm 池化](vmcache.md)
 
 ### kata 开发
-- [kata 编译构建](install.md)
+- [kata 编译构建](build.md)
 
 
 ## 演讲 PDF
