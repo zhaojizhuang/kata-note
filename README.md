@@ -8,7 +8,7 @@ kata 相关笔记
 - [轻量虚拟化相关组件](guest-asserts.md)
 - [kata 启动 trace](trace.md)
 
-## PDF
+## 演讲 PDF
 
 - [Kata-Containers-The-way-to-run-virtualized-containers.pdf](pdfs/Kata-Containers-The-way-to-run-virtualized-containers.pdf)
 - [云原生技术生态和趋势及英特尔如何助力云原生技术.pdf](pdfs/云原生技术生态和趋势及英特尔如何助力云原生技术.pdf)
