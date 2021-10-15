@@ -2,7 +2,7 @@
 
 > 版本 2.2.0
 
-依赖于 containerd,如果之前是 Docker 安装的，可以参考[这篇文章]进行替换(https://mp.weixin.qq.com/s?__biz=MzU4MjQ0MTU4Ng==&mid=2247495053&idx=1&sn=cf1b685d347aa0ec793ca719f0f9ac14&chksm=fdbae290cacd6b866073bf26a5854a9cb67e5686810b8482ae0eadd7c38d8b107b6b3225c91b&mpshare=1&scene=1&srcid=0916wl1OB35uKPmFj1GcesQE&sharer_sharetime=1631781634683&sharer_shareid=9cf9ee6135f38546df3e013cc667681a&exportkey=AR8A6C2INCMXLOmbck1ZqAU%3D&pass_ticket=9A0OCej%2BFTrga%2B4dF7bsnBRjFlWhU8FFh4nt8OSdKHfQzLxRUOxtzrDUvbWj%2BnxJ&wx_header=0#rd)
+依赖于 containerd,如果之前是 Docker 安装的，可以参考 [这篇文章](https://mp.weixin.qq.com/s?__biz=MzU4MjQ0MTU4Ng==&mid=2247495053&idx=1&sn=cf1b685d347aa0ec793ca719f0f9ac14&chksm=fdbae290cacd6b866073bf26a5854a9cb67e5686810b8482ae0eadd7c38d8b107b6b3225c91b&mpshare=1&scene=1&srcid=0916wl1OB35uKPmFj1GcesQE&sharer_sharetime=1631781634683&sharer_shareid=9cf9ee6135f38546df3e013cc667681a&exportkey=AR8A6C2INCMXLOmbck1ZqAU%3D&pass_ticket=9A0OCej%2BFTrga%2B4dF7bsnBRjFlWhU8FFh4nt8OSdKHfQzLxRUOxtzrDUvbWj%2BnxJ&wx_header=0#rd) 进行替换
 
 
 
