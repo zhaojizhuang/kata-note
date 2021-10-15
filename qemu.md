@@ -1,4 +1,4 @@
-# kata 中的 qemu
+# kata 启动 qemu 参数详解
 
 kata 利用社区 qemu 5.2.0 增加了一些 patch 优化
 
