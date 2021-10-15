@@ -140,5 +140,5 @@ sudo losetup -d "$dev"
 
 ## 参考
 
-https://blog.csdn.net/u010827484/article/details/117488293
-https://github.com/kata-containers/kata-containers/blob/main/docs/Developer-Guide.md
+- https://github.com/kata-containers/kata-containers/blob/main/docs/Developer-Guide.md
+- https://blog.csdn.net/u010827484/article/details/117488293
