@@ -114,6 +114,9 @@ script -fec 'sudo -E USE_DOCKER=true ./image_builder.sh ${ROOTFS_DIR}'
 
 ## 调试 agent
 
+`kata-agent` 编译时间在 2 min 左右，加上制作 rootfs，编译 rootfs 镜像，一套流程下来要 20多分钟。
+调试时可以通过 mount kata-containers.img 替换其中的  `kata-agent` 二进制, 秒级完成，节省宝贵的时间
+
 ```bash
 #!/usr/bin/bash
 
