@@ -95,11 +95,11 @@ make
 
 ```bash
 
-export distro=clearlinux # 可选项 alpine, centos, clearlinux, debian, euleros, fedora, suse,  ubuntu
+export distro=centos # 可选项 alpine, centos, clearlinux, debian, euleros, fedora, suse,  ubuntu
 export ROOTFS_DIR=${GOPATH}/src/github.com/kata-containers/kata-containers/tools/osbuilder/rootfs-builder/rootfs
 sudo rm -rf ${ROOTFS_DIR}
 cd $GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/rootfs-builder
-script -fec 'sudo -E GOPATH=$GOPATH USE_DOCKER=true SECCOMP=no ./rootfs.sh ${distro}'
+script -fec 'sudo -E GOPATH=$GOPATH USE_DOCKER=true SECCOMP=no EXTRA_PKGS="bash coreutils" ./rootfs.sh ${distro}'
 
 # 如果要编译带有 console 的镜像则执行如下命令
 # script -fec 'USE_DOCKER=true EXTRA_PKGS="bash coreutils" ./rootfs.sh centos'

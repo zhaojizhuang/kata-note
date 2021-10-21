@@ -19,6 +19,14 @@
 kubectl apply -f https://raw.githubusercontent.com/kata-containers/kata-containers/main/docs/how-to/data/kata-monitor-daemonset.yml
 ```
 
+### prometheus 添加抓取规则
+```yaml
+spec:
+  additionalScrapeConfigs:
+  - job_name: 'kata'
+    static_configs:
+    - targets: ['localhost:8090']
+```
 
 ### 2. 配置 Grafana dashboard 面板 
 
