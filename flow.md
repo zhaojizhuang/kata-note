@@ -83,9 +83,10 @@ service Task {
 
 ## OCI bundle
 
-OCI 定义的数据在 `/var/run/containerd/io.containerd.runtime.v2.task/k8s.io/<task ID>/config.json`
+OCI runtimeSpec 定义的数据在 `/var/run/containerd/io.containerd.runtime.v2.task/k8s.io/<task ID>/config.json`
 
-bundle path 中的文件
+bundle path 中的文件，分两种：sandbox 和 container
+
 - sandbox
 
 ```bash
