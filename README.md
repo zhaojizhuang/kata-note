@@ -4,6 +4,10 @@ kata 相关笔记
 
 ## 目录
 
+### 基础知识
+
+- [OCI](oci.md)
+
 ### 原理及实战
 - [kata container 安装部署](install.md)
 - [可观测性](observability.md)
