@@ -10,8 +10,7 @@ kata 相关笔记
 
 ### 原理及实战
 - [kata container 安装部署](install.md)
-- [可观测性](observability.md)
-- [轻量虚拟化相关组件](guest-asserts.md)
+- [kata container 可观测性](observability.md)
 - [kata 启动 trace](trace.md)
 - [kata container 中的调用流程](flow.md)
 - [kata 启动 qemu 参数详解](qemu.md)
