@@ -112,32 +112,6 @@ cd $GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/image-
 script -fec 'sudo -E USE_DOCKER=true ./image_builder.sh ${ROOTFS_DIR}'
 ```
 
-## 调试 agent
-
-`kata-agent` 编译时间在 2 min 左右，加上制作 rootfs，编译 rootfs 镜像，一套流程下来要 20多分钟。
-调试时可以通过 mount kata-containers.img 替换其中的  `kata-agent` 二进制, 秒级完成，节省宝贵的时间
-
-```bash
-#!/usr/bin/bash
-
-agent="$GOPATH/src/github.com/kata-containers/kata-containers/src/agent/target/x86_64-unknown-linux-musl/release/kata-agent"
-img="$(realpath /data00/kata/share/kata-containers/kata-containers.img)"
-
-dev="$(sudo losetup --show -f -P "$img")"
-echo "$dev"
-
-part="${dev}p1"
-
-sudo mount $part /mnt
-
-sudo install -b $agent /mnt/usr/bin/kata-agent
-
-sudo umount /mnt
-
-sudo losetup -d "$dev"
-```
-
-
 ## 参考
 
 - https://github.com/kata-containers/kata-containers/blob/main/docs/Developer-Guide.md

@@ -17,6 +17,7 @@ kata 相关笔记
 
 ### kata 开发
 - [kata 编译构建](build.md)
+- [kata-containers 调试](debug.md)
 
 
 ## 演讲 PDF
