@@ -98,8 +98,14 @@ kata-containers [QEMU patches](https://github.com/kata-containers/kata-container
 -kernel /opt/kata/share/kata-containers/vmlinux-5.10.25-85 
 # 加载的 linux 内核
 
--append tsc=reliable no_timer_check rcupdate.rcu_expedited=1 i8042.direct=1 i8042.dumbkbd=1 i8042.nopnp=1 i8042.noaux=1 noreplace-smp reboot=k console=hvc0 console=hvc1 cryptomgr.notests net.ifnames=0 pci=lastbus=0 root=/dev/pmem0p1 rootflags=dax,data=ordered,errors=remount-ro ro rootfstype=ext4 quiet systemd.show_status=false panic=1 nr_cpus=8 systemd.unit=kata-containers.target systemd.mask=systemd-networkd.service systemd.mask=systemd-networkd.socket scsi_mod.scan=none 
-# append，此选项的作用是内核启动时，传入内核参数，可以将内核也看作为一个函数，指定内核参数
+-append tsc=reliable no_timer_check rcupdate.rcu_expedited=1 i8042.direct=1 
+i8042.dumbkbd=1 i8042.nopnp=1 i8042.noaux=1 noreplace-smp reboot=k console=hvc0 console=hvc1 cryptomgr.notests 
+net.ifnames=0 pci=lastbus=0 root=/dev/pmem0p1 rootflags=dax,data=ordered,errors=remount-ro ro 
+rootfstype=ext4 quiet systemd.show_status=false panic=1 nr_cpus=8 systemd.unit=kata-containers.target 
+systemd.mask=systemd-networkd.service systemd.mask=systemd-networkd.socket scsi_mod.scan=none 
+agent.log=debug agent.debug_console agent.debug_console_vport=1026
+# append，此选项的作用是内核启动时，传入内核参数，可以将内核也看作为一个函数，指定内核参数，系统启动后，参数保存在 /proc/cmdline 
+# 这里包含 kata-agent 的配置信息，用户在 agent 启动时时 从 /proc/cmdline 文件中读取
 
 -pidfile /run/vc/vm/aed7737ccc2f20ca2bffd069324b86e2ec6357023a8ee1034c7f9e532cd17eae/pid 
 
