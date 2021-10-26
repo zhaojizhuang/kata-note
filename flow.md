@@ -115,17 +115,12 @@ lrwxrwxrwx  1 root root  121 Oct  8 15:19 work -> /var/lib/containerd/io.contain
 
 ## containerd-shim-kata-v2 流程
 
-1. Create 
-   1. load oci spec (从 config.json 的路径)
-   2. 根据 container type
-      1. sandbox
-         1. load  runtime config (`configuration.toml`)
-         2. 根据 oci spec `config.json` 和 kata 的 config `configuration.toml` 实例化 `VCSandbox`
+![](images/kata-containers.svg)
 
-      2. containerd
-      
-+.--
-## virtcontainers
+> 其中 宿主机上保存的 sandbox 的配置在 `/run/vc/sbs/<sandbox-ID>/`
+> 参见[persist.json](data/persist.json)
+
+## kata-agent 流程
 
 
 [virtcontainers API](https://github.com/kata-containers/kata-containers/blob/main/src/runtime/virtcontainers/documentation/api/1.0/api.md)

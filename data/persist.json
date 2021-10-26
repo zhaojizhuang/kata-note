@@ -1,0 +1,278 @@
+{
+  "CgroupPaths": null,
+  "Devices": [
+    {
+      "DriverOptions": {
+        "block-driver": "virtio-scsi"
+      },
+      "BlockDrive": {
+        "File": "/dev/ram0",
+        "Format": "raw",
+        "ID": "drive-ba3085991a0a5547",
+        "MmioAddr": "",
+        "SCSIAddr": "0:0",
+        "NvdimmID": "",
+        "VirtPath": "",
+        "DevNo": "",
+        "PCIPath": {},
+        "Index": 0,
+        "Pmem": false
+      },
+      "ID": "ba3085991a0a5547",
+      "Type": "block",
+      "DevType": "b",
+      "RefCount": 1,
+      "AttachCount": 1,
+      "Major": 1,
+      "Minor": 0,
+      "ColdPlug": false
+    }
+  ],
+  "State": "running",
+  "SandboxContainer": "3d15c53087d2e6206367c8eb006d518ae4d22dae45ec03e1ed83c43351e742b3",
+  "SandboxCgroupPath": "/kubepods/burstable/podd277349b-9b7a-4686-8504-71047e38d096/kata_3d15c53087d2e6206367c8eb006d518ae4d22dae45ec03e1ed83c43351e742b3",
+  "OverheadCgroupPath": "/kata_overhead/3d15c53087d2e6206367c8eb006d518ae4d22dae45ec03e1ed83c43351e742b3",
+  "HypervisorState": {
+    "BlockIndexMap": {
+      "0": {}
+    },
+    "Type": "qemu",
+    "UUID": "4b78ab7d-0196-4996-be22-3331811451a3",
+    "APISocket": "",
+    "Bridges": [
+      {
+        "DeviceAddr": {},
+        "Type": "pci",
+        "ID": "pci-bridge-0",
+        "Addr": 2
+      }
+    ],
+    "HotpluggedVCPUs": [
+      {
+        "ID": "cpu-0"
+      }
+    ],
+    "HotpluggedMemory": 0,
+    "VirtiofsdPid": 3331950,
+    "Pid": 3331956,
+    "PCIeRootPort": 0,
+    "HotplugVFIOOnRootBus": false
+  },
+  "AgentState": {
+    "URL": "vsock://2992051515:1024"
+  },
+  "Network": {
+    "NetNsPath": "/var/run/netns/cni-08f86b67-6f3c-3051-e4bf-f61a9829ee42",
+    "Endpoints": [
+      {
+        "Veth": {
+          "NetPair": {
+            "ID": "0ec86b8c-b522-4917-a687-63ecfb4a15be",
+            "Name": "br0_kata",
+            "TAPIface": {
+              "Name": "tap0_kata",
+              "HardAddr": "02:9c:df:00:01:b9",
+              "Addrs": null
+            },
+            "VirtIface": {
+              "Name": "eth0",
+              "HardAddr": "3a:a0:37:61:6e:08",
+              "Addrs": [
+                {
+                  "IP": "10.0.0.38",
+                  "Mask": "/////w==",
+                  "Label": "eth0",
+                  "Flags": 128,
+                  "Scope": 0,
+                  "Peer": null,
+                  "Broadcast": "",
+                  "PreferedLft": 4294967295,
+                  "ValidLft": 4294967295,
+                  "LinkIndex": 333
+                },
+                {
+                  "IP": "fe80::9c:dfff:fe00:1b9",
+                  "Mask": "//////////8AAAAAAAAAAA==",
+                  "Label": "",
+                  "Flags": 128,
+                  "Scope": 253,
+                  "Peer": null,
+                  "Broadcast": "",
+                  "PreferedLft": 4294967295,
+                  "ValidLft": 4294967295,
+                  "LinkIndex": 333
+                }
+              ]
+            },
+            "NetInterworkingModel": 1
+          }
+        },
+        "Type": "virtual"
+      }
+    ],
+    "NetmonPID": 0,
+    "NetNsCreated": false
+  },
+  "Config": {
+    "ContainerConfigs": [
+      {
+        "Annotations": {
+          "io.katacontainers.pkg.oci.bundle_path": "/run/containerd/io.containerd.runtime.v2.task/k8s.io/3d15c53087d2e6206367c8eb006d518ae4d22dae45ec03e1ed83c43351e742b3",
+          "io.katacontainers.pkg.oci.container_type": "pod_sandbox",
+          "io.kubernetes.cri.container-type": "sandbox",
+          "io.kubernetes.cri.sandbox-id": "3d15c53087d2e6206367c8eb006d518ae4d22dae45ec03e1ed83c43351e742b3",
+          "io.kubernetes.cri.sandbox-log-directory": "/var/log/pods/default_busybox-vm-block_d277349b-9b7a-4686-8504-71047e38d096",
+          "io.kubernetes.cri.sandbox-name": "busybox-vm-block",
+          "io.kubernetes.cri.sandbox-namespace": "default"
+        },
+        "Resources": {
+          "devices": [
+            {
+              "allow": false,
+              "access": "rwm"
+            }
+          ],
+          "cpu": {
+            "shares": 2
+          }
+        },
+        "ID": "3d15c53087d2e6206367c8eb006d518ae4d22dae45ec03e1ed83c43351e742b3",
+        "RootFs": "/run/containerd/io.containerd.runtime.v2.task/k8s.io/3d15c53087d2e6206367c8eb006d518ae4d22dae45ec03e1ed83c43351e742b3/rootfs"
+      },
+      {
+        "Annotations": {
+          "io.katacontainers.pkg.oci.bundle_path": "/run/containerd/io.containerd.runtime.v2.task/k8s.io/0c51e2269e3911636b08721bdc0233d57f4e11fbbe2edd7ea7e9bcf173ed9b5c",
+          "io.katacontainers.pkg.oci.container_type": "pod_container",
+          "io.kubernetes.cri.container-name": "busybox",
+          "io.kubernetes.cri.container-type": "container",
+          "io.kubernetes.cri.image-name": "docker.io/library/busybox:latest",
+          "io.kubernetes.cri.sandbox-id": "3d15c53087d2e6206367c8eb006d518ae4d22dae45ec03e1ed83c43351e742b3",
+          "io.kubernetes.cri.sandbox-name": "busybox-vm-block",
+          "io.kubernetes.cri.sandbox-namespace": "default"
+        },
+        "Resources": {
+          "devices": [
+            {
+              "allow": false,
+              "access": "rwm"
+            },
+            {
+              "allow": true,
+              "type": "b",
+              "major": 1,
+              "minor": 0,
+              "access": "mrw"
+            }
+          ],
+          "memory": {},
+          "cpu": {
+            "shares": 512,
+            "quota": 50000,
+            "period": 100000
+          }
+        },
+        "ID": "0c51e2269e3911636b08721bdc0233d57f4e11fbbe2edd7ea7e9bcf173ed9b5c",
+        "RootFs": "/run/containerd/io.containerd.runtime.v2.task/k8s.io/0c51e2269e3911636b08721bdc0233d57f4e11fbbe2edd7ea7e9bcf173ed9b5c/rootfs"
+      }
+    ],
+    "SandboxBindMounts": null,
+    "Experimental": null,
+    "cgroups": null,
+    "KataAgentConfig": {
+      "LongLiveConn": true
+    },
+    "KataShimConfig": null,
+    "HypervisorType": "qemu",
+    "NetworkConfig": {
+      "NetNSPath": "/var/run/netns/cni-08f86b67-6f3c-3051-e4bf-f61a9829ee42",
+      "NetNsCreated": false,
+      "DisableNewNetNs": false,
+      "InterworkingModel": 1
+    },
+    "HypervisorConfig": {
+      "KernelPath": "/opt/kata/share/kata-containers/vmlinux-5.10.25-85",
+      "ImagePath": "/opt/kata/share/kata-containers/kata-containers.img",
+      "InitrdPath": "",
+      "FirmwarePath": "",
+      "MachineAccelerators": "",
+      "CPUFeatures": "pmu=off",
+      "HypervisorPath": "/opt/kata/bin/qemu-system-x86_64",
+      "HypervisorCtlPath": "",
+      "JailerPath": "",
+      "BlockDeviceDriver": "virtio-scsi",
+      "HypervisorMachineType": "q35",
+      "MemoryPath": "",
+      "DevicesStatePath": "",
+      "EntropySource": "/dev/urandom",
+      "SharedFS": "virtio-fs",
+      "VirtioFSDaemon": "/opt/kata/libexec/kata-qemu/virtiofsd",
+      "VirtioFSCache": "auto",
+      "FileBackedMemRootDir": "",
+      "VhostUserStorePath": "/var/run/kata-containers/vhost-user",
+      "GuestHookPath": "",
+      "VMid": "",
+      "HypervisorPathList": [
+        "/opt/kata/bin/qemu-system-x86_64"
+      ],
+      "HypervisorCtlPathList": null,
+      "JailerPathList": null,
+      "EntropySourceList": [
+        "/dev/urandom",
+        "/dev/random",
+        ""
+      ],
+      "VirtioFSDaemonList": [
+        "/opt/kata/libexec/kata-qemu/virtiofsd"
+      ],
+      "VirtioFSExtraArgs": [
+        "--thread-pool-size=1"
+      ],
+      "FileBackedMemRootList": [
+        ""
+      ],
+      "VhostUserStorePathList": [
+        "/var/run/kata-containers/vhost-user"
+      ],
+      "EnableAnnotations": [],
+      "MemOffset": 0,
+      "RxRateLimiterMaxRate": 0,
+      "TxRateLimiterMaxRate": 0,
+      "SGXEPCSize": 0,
+      "PCIeRootPort": 0,
+      "NumVCPUs": 1,
+      "DefaultMaxVCPUs": 8,
+      "MemorySize": 2048,
+      "DefaultBridges": 1,
+      "Msize9p": 8192,
+      "MemSlots": 10,
+      "VirtioFSCacheSize": 0,
+      "BlockDeviceCacheSet": false,
+      "BlockDeviceCacheDirect": false,
+      "BlockDeviceCacheNoflush": false,
+      "DisableBlockDeviceUse": false,
+      "EnableIOThreads": false,
+      "Debug": false,
+      "MemPrealloc": false,
+      "HugePages": false,
+      "VirtioMem": false,
+      "Realtime": false,
+      "Mlock": false,
+      "DisableNestingChecks": false,
+      "DisableImageNvdimm": false,
+      "HotplugVFIOOnRootBus": false,
+      "BootToBeTemplate": false,
+      "BootFromTemplate": false,
+      "DisableVhostNet": false,
+      "EnableVhostUserStore": false
+    },
+    "ShmSize": 67108864,
+    "SharePidNs": false,
+    "Stateful": false,
+    "SystemdCgroup": false,
+    "SandboxCgroupOnly": false,
+    "DisableGuestSeccomp": true
+  },
+  "PersistVersion": 2,
+  "GuestMemoryBlockSizeMB": 128,
+  "GuestMemoryHotplugProbe": false
+}
