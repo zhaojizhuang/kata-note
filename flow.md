@@ -98,7 +98,7 @@ drwxr-xr-x  1 root root 4096 Oct  8 15:19 rootfs
 lrwxrwxrwx  1 root root  121 Oct  8 15:19 work -> /var/lib/containerd/io.containerd.runtime.v2.task/k8s.io/08ea62447079a5b95d6493d82a5d0253fda5b03130abab74d400e45bba725511
 ```
 
-- containerd
+- container
 
 ```bash
 ls -al /var/run/containerd/io.containerd.runtime.v2.task/k8s.io/<task ID>/
@@ -111,13 +111,14 @@ drwxr-xr-x  1 root root 4096 Oct  8 15:19 rootfs
 lrwxrwxrwx  1 root root  121 Oct  8 15:19 work -> /var/lib/containerd/io.containerd.runtime.v2.task/k8s.io/42c9241c910025e35858d44af039b94f58732f77876f2c1ef99c7a3a65bfd33c
 ```
 
+
 具体参见 [config.json](data/config(oci%20spec).json)
 
-## containerd-shim-kata-v2 流程
+## containerd-shim-kata-v2 源码解析
 
 ![](images/kata-containers.svg)
 
-> 其中 宿主机上保存的 sandbox 的配置在 `/run/vc/sbs/<sandbox-ID>/`
+> 其中 宿主机上保存的 sandbox 的状态信息 json 在 `/run/vc/sbs/<sandbox-ID>/`
 > 参见[persist.json](data/persist.json)
 
 ## kata-agent 流程

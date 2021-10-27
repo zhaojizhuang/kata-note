@@ -1,6 +1,9 @@
 # Storage
 
+## 文件存储
 
+virtio-fs
+![](images/inotify-workaround.png)
 
 
 ## 存储测试

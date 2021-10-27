@@ -16,6 +16,7 @@ kata 相关笔记
 - [kata 启动 qemu 参数详解](qemu.md)
 - [轻量虚拟化相关组件 (Guest assets)](guest-asserts.md)
 - [kata 支持块设备](raw-block.md)
+- [pod 中的资源限制](kata-cgroup.md)
 - [vm 池化](vmcache.md)
 
 ### kata 开发
