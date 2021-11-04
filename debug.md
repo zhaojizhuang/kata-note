@@ -97,7 +97,7 @@ EXAMPLES:
 #!/usr/bin/bash
 
 agent="$GOPATH/src/github.com/kata-containers/kata-containers/src/agent/target/x86_64-unknown-linux-musl/release/kata-agent"
-img="$(realpath /data00/kata/share/kata-containers/kata-containers.img)"
+img="$(realpath /opt/kata/share/kata-containers/kata-containers.img)"
 
 dev="$(sudo losetup --show -f -P "$img")"
 echo "$dev"

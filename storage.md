@@ -3,8 +3,6 @@
 ## 文件存储
 
 virtio-fs
-![](images/inotify-workaround.png)
-
 
 ## 存储测试
 
@@ -19,3 +17,5 @@ virtio-fs
 - https://help.aliyun.com/document_detail/111913.html
 
 - https://www.cnblogs.com/raykuan/p/6914748.html
+
+
