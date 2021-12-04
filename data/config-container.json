@@ -14,8 +14,11 @@
       "while true; do date; sleep 1; done"
     ],
     "env": [
+      "DEMO_GREETING=Hello from the environment",
+      "DEMO_FAREWELL=Such a sweet sorrow",
       "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
       "HOSTNAME=busybox-vm-block",
+      "HOSTNAME=busybox-vm",
       "KUBERNETES_PORT_443_TCP_PROTO=tcp",
       "KUBERNETES_PORT_443_TCP_PORT=443",
       "KUBERNETES_PORT_443_TCP_ADDR=10.96.0.1",
