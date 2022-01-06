@@ -99,10 +99,10 @@ export distro=centos # 可选项 alpine, centos, clearlinux, debian, euleros, fe
 export ROOTFS_DIR=${GOPATH}/src/github.com/kata-containers/kata-containers/tools/osbuilder/rootfs-builder/rootfs
 sudo rm -rf ${ROOTFS_DIR}
 cd $GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/rootfs-builder
-script -fec 'sudo -E GOPATH=$GOPATH USE_DOCKER=true SECCOMP=no EXTRA_PKGS="bash coreutils" ./rootfs.sh ${distro}'
+script -fec 'sudo -E USE_DOCKER=true SECCOMP=no EXTRA_PKGS="bash coreutils" ./rootfs.sh ${distro}'
 
-# 如果要编译带有 console 的镜像则执行如下命令
-# script -fec 'USE_DOCKER=true EXTRA_PKGS="bash coreutils" ./rootfs.sh centos'
+# EXTRA_PKGS 为需要打包到rootfs 中的二进制， coreutils 为 包含 bash，kata exec 进入 console 用的
+# 最新版本已经默认加了 coreustils 了
 ```
 
 ### 4. 编译 rootfs 镜像
@@ -110,6 +110,20 @@ script -fec 'sudo -E GOPATH=$GOPATH USE_DOCKER=true SECCOMP=no EXTRA_PKGS="bash 
 ```bash
 cd $GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/image-builder
 script -fec 'sudo -E USE_DOCKER=true ./image_builder.sh ${ROOTFS_DIR}'
+```
+
+
+### 5. 通过 make 构建
+
+```bash
+# 部分 rootfs 构建时需要下载对应的安装包，需要代理
+# export  http_proxy=xxx https_proxy= xxx
+cd $GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/
+make clean # 清除上次构建结果
+make DISTRO=debian \
+ OS_VERSION=10.10 \
+ EXTRA_PKGS="chrony xfsprogs strace lsof nfs-common binutils ipvsadm ethtool e2fsprogs netcat tcpdump iproute2 net-tools telnet iputils-ping" \
+ USE_DOCKER=true image
 ```
 
 ## 参考

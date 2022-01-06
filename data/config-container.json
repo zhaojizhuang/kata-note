@@ -252,7 +252,9 @@
           "access": "mrw"
         }
       ],
-      "memory": {},
+      "memory": {
+        "limit": 5242880000
+      },
       "cpu": {
         "shares": 512,
         "quota": 50000,

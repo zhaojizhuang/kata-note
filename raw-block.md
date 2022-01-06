@@ -14,6 +14,15 @@ root@~:~# ls -al /dev/ram*
 brw-rw---- 1 root disk 1, 0 Sep 29 11:14 /dev/ram0
 brw-rw---- 1 root disk 1, 1 Sep 29 11:14 /dev/ram1
 ```
+
+### 删除 ramdisk 设备
+
+
+```shell
+# umount 掉所有 mount 点
+modprobe -r brd
+```
+
 ### 2. 分区 
 
 ```bash
