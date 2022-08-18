@@ -28,6 +28,46 @@ spec:
     - targets: ['localhost:8090']
 ```
 
+
+### 通过 servicemonitor 的方式
+
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: kata-monitor
+  namespace: kata-system
+spec:
+  endpoints:
+  - interval: 15s
+    path: /metrics
+    port: metrics
+  namespaceSelector:
+    any: true
+  selector:
+    matchLabels:
+      app: kata-monitor
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kata-monitor
+  name: kata-monitor
+  namespace: kata-system
+spec:
+  ports:
+    - name: metrics
+      port: 8090
+      protocol: TCP
+      targetPort: 8090
+  selector:
+    app.kubernetes.io/name: kata-monitor
+  type: ClusterIP
+```
+
+
+
 ### 2. 配置 Grafana dashboard 面板 
 
 导入 `https://raw.githubusercontent.com/kata-containers/kata-containers/main/docs/how-to/data/dashboard.json` dashboard

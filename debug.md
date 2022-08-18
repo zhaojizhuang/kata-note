@@ -96,7 +96,7 @@ EXAMPLES:
 ```bash
 #!/usr/bin/bash
 
-agent="$GOPATH/src/github.com/kata-containers/kata-containers/src/agent/target/x86_64-unknown-linux-musl/release/kata-agent"
+agent="$GOPATH/src/github.com/kata-containers/kata-containers/src/agent/target/x86_64-unknown-linux-musl/debug/kata-agent"
 img="$(realpath /opt/kata/share/kata-containers/kata-containers.img)"
 
 dev="$(sudo losetup --show -f -P "$img")"
@@ -104,11 +104,11 @@ echo "$dev"
 
 part="${dev}p1"
 
-sudo mount $part /mnt
+sudo mount $part /mnt2
 
-sudo install -b $agent /mnt/usr/bin/kata-agent
+sudo install -b $agent /mnt1/usr/bin/kata-agent
 
-sudo umount /mnt
+sudo umount /mnt1
 
 sudo losetup -d "$dev"
 ```

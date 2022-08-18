@@ -85,6 +85,24 @@ make
 
 ### 2. 编译 kata-agent
 
+#### agent 的 rpc protocols 编译
+用于在 Goland IDE 中查看引用关系
+
+rust 语言
+```shell
+cd $GOPATH/src/github.com/kata-containers/kata-containers/src/libs/protocols
+cargo clean
+cargo build
+
+# 结果生成在 $GOPATH/src/github.com/kata-containers/kata-containers/src/libs/protocols/src
+```
+go 语言
+```shell
+cd $GOPATH/src/github.com/kata-containers/kata-containers/src/agent
+make generate-protocols
+```
+
+
 ```bash
 cd $GOPATH/src/github.com/kata-containers/kata-containers/src/agent
 make 
