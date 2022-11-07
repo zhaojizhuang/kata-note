@@ -99,16 +99,29 @@ EXAMPLES:
 agent="$GOPATH/src/github.com/kata-containers/kata-containers/src/agent/target/x86_64-unknown-linux-musl/debug/kata-agent"
 img="$(realpath /opt/kata/share/kata-containers/kata-containers.img)"
 
-dev="$(sudo losetup --show -f -P "$img")"
+dev="$( losetup --show -f -P "$img")"
 echo "$dev"
 
 part="${dev}p1"
 
-sudo mount $part /mnt2
+mount $part /mnt1
 
-sudo install -b $agent /mnt1/usr/bin/kata-agent
+install -b $agent /mnt1/usr/bin/kata-agent
 
-sudo umount /mnt1
+ umount /mnt1
 
-sudo losetup -d "$dev"
+losetup -d "$dev"
+```
+
+另一种方式
+
+```shell
+fdisk -l kata-ubuntu-latest.image
+# 找到 image  的 start,替换掉
+mount -o loop,offset=$[6144*512] kata-ubuntu-latest.image tmp3/
+mkdir tmp2
+cp -ar tmp3/* tmp2/
+
+cp /data00/code/kata-containers/src/agent/target/debug/kata-agent tmp2/usr/bin/kata-agent
+/data00/code/kata-containers/tools/osbuilder/image-builder/image_builder.sh -o test.img tmp2
 ```

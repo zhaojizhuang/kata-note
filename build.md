@@ -138,7 +138,7 @@ script -fec 'sudo -E USE_DOCKER=true ./image_builder.sh ${ROOTFS_DIR}'
 # export  http_proxy=xxx https_proxy= xxx
 cd $GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/
 make clean # 清除上次构建结果
-make DISTRO=debian \
+make DISTRO=ubuntu \
  OS_VERSION=10.10 \
  EXTRA_PKGS="chrony xfsprogs strace lsof nfs-common binutils ipvsadm ethtool e2fsprogs netcat tcpdump iproute2 net-tools telnet iputils-ping" \
  USE_DOCKER=true image
