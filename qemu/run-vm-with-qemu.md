@@ -77,7 +77,55 @@
 ```
 
 
-## qmp 连接
+## 进入 vm
+### 通过 vsock 进入
+
+通过 vsock 进入 vm 需要借助 kata-runtime, kata-runtime 需要修改下
+
+```go
+// src/runtime/cmd/kata-runtime/kata-exec.go
+func getConn(sandboxID string, port uint64) (net.Conn, error) {
+	
+	//client, err := kataMonitor.BuildShimClient(sandboxID, defaultTimeout)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//
+	//resp, err := client.Get("http://shim/agent-url")
+	//if err != nil {
+	//	return nil, err
+	//}
+	//
+	//if resp.StatusCode != http.StatusOK {
+	//	return nil, fmt.Errorf("Failure from %s shim-monitor: %d", sandboxID, resp.StatusCode)
+	//}
+	//
+	//defer resp.Body.Close()
+	//data, err := ioutil.ReadAll(resp.Body)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//
+	//sock := strings.TrimSuffix(string(data), "\n")
+	sock := "vsock://123456789:1026"
+
+}
+```
+编译 kata-runtime
+```shell
+cd src/runtime
+make runtime
+cp ./kata-runtime /usr/local/bin/kata-runtime-debug
+
+```
+
+进入 vm
+
+```shell
+kata-runtime-debug exec aaa
+```
+
+### qmp 连接
 
 ```shell
 nc -U /tmp/qmp.sock
