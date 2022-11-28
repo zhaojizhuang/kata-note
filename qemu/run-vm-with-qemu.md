@@ -13,7 +13,7 @@
         -machine q35,accel=kvm,kernel_irqchip=on \
         -cpu host,pmu=off \
         -m 1G,slots=10,maxmem=386044M \
-        -device pci-bridge,bus=pcie.0,id=pci-bridge-0,chassis_nr=1,shpc=off,addr=2,io-reserve=4k,mem-reserve=1m,pref64-reserve=1m \
+        -device pci-bridge,bus=pcie.0,id=pci-bridge-0,chassis_nr=1,shpc=on,addr=2,io-reserve=4k,mem-reserve=1m,pref64-reserve=1m \
         -serial mon:stdio \
         -device virtio-scsi-pci,id=scsi0,disable-modern=false \
         -object rng-random,id=rng0,filename=/dev/urandom \
@@ -69,7 +69,7 @@
         -drive id=image-f15d6c054f7f189c,file=/opt/kata/share/kata-containers/kata-containers.img,aio=threads,format=raw,if=none,readonly=on \
          -append "root=/dev/vda1 ro console=ttyS0 systemd.show_status=false panic=1 nr_cpus=4 systemd.unit=kata-containers.target systemd.mask=systemd-networkd.service systemd.mask=systemd-networkd.socket scsi_mod.scan=none agent.log=debug agent.debug_console agent.debug_console_vport=1026 agent.log=debug" \
         -smp 64 \
-        -qmp unix:/tmp/qmp.sock,server=on,wait=off \
+        -monitor unix:/tmp/qmp.sock,server=on,wait=off \
         -device pcie-root-port,port=0x10,chassis=1,id=pci.1,bus=pcie.0,multifunction=on,addr=0xf \
         -device pcie-root-port,port=0x11,chassis=2,id=pci.2,bus=pcie.0,addr=0xf.0x1 \
         -device virtio-net-pci,netdev=network-0,mac=9a:e8:e9:ea:eb:ec,id=net1,vectors=9,mq=on \
@@ -125,30 +125,42 @@ cp ./kata-runtime /usr/local/bin/kata-runtime-debug
 kata-runtime-debug exec aaa
 ```
 
-### qmp 连接
+### hmp 连接
+
+qemu 启动时 -monitor 是 hmp 方式，-qmp 是 qmp 方式
+hmp 方式 更人性化一点
+
+#### 方式一：
 
 ```shell
 nc -U /tmp/qmp.sock
 
+```
+
+#### 方式二
+
+```shell
 # 或者 
 socat - unix:/tmp/qmp.sock
 ```
 
-### 可以通过 qmp-shell 连接 qemu 的 qmp
-
-https://github.com/qemu/qemu/blob/master/scripts/qmp/qmp-shell
-
-```shell
-# 连接 qmp
-./qmp-shell  -p -v /tmp/qmp.sock
-
-```
 
 #### hotplugin vhostuser blk 设备
 
 ```shell
-chardev-add socket,id=char0,path=/var/run/kata-containers/vhost-user/block/sockets/vhostblk0
+chardev-add socket,id=char1,path=/var/run/kata-containers/vhost-user/block/sockets/vhostblk0,wait=off
+chardev-add socket,id=char2,path=/var/tmp/spdk.sock
+chardev-add socket,id=blk4,path=/var/run/byted-spdk/vm-75p4/disk.sock 
 
+chardev-add socket,id=blk2,path=/var/run/kata-containers/vhost-user/block/sockets/blk2
+
+
+# return ok
+
+device_add vhost-user-blk-pci,id=blk2,chardev=blk2,addr=0x02,bus=pci-bridge-0
+
+device_add vhost-user-blk-pci,id=virtio-blk0,chardev=blk3,addr=02,bus=pci-bridge-0
+# return ok
 
 ```
 

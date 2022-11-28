@@ -117,11 +117,11 @@ losetup -d "$dev"
 
 ```shell
 fdisk -l kata-ubuntu-latest.image
-# 找到 image  的 start,替换掉
+# 找到 image  的 start,替换掉 6144
 mount -o loop,offset=$[6144*512] kata-ubuntu-latest.image tmp3/
 mkdir tmp2
 cp -ar tmp3/* tmp2/
 
 cp /data00/code/kata-containers/src/agent/target/debug/kata-agent tmp2/usr/bin/kata-agent
-/data00/code/kata-containers/tools/osbuilder/image-builder/image_builder.sh -o test.img tmp2
+$GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/image-builder/image_builder.sh -o kata-ubuntu-spdk.image.img /tmp2
 ```
