@@ -150,7 +150,6 @@ socat - unix:/tmp/qmp.sock
 ```shell
 chardev-add socket,id=char1,path=/var/run/kata-containers/vhost-user/block/sockets/vhostblk0,wait=off
 chardev-add socket,id=char2,path=/var/tmp/spdk.sock
-chardev-add socket,id=blk4,path=/var/run/byted-spdk/vm-75p4/disk.sock 
 
 chardev-add socket,id=blk2,path=/var/run/kata-containers/vhost-user/block/sockets/blk2
 
