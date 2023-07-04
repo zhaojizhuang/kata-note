@@ -64,6 +64,6 @@ device_add virtio-blk-pci,drive=disk1,id=disk1,bus=pci-bridge-0
 
 
 ```shell
-drive_add disk2  id=disk2,file=/root/kata/qemublock/a2.raw,format=raw,if=none 
+drive_add disk2  id=disk2,file=/root/kata/qemublock/a2.qcow2,format=raw,if=none 
 device_add virtio-blk-pci,drive=disk2,id=disk2,bus=pci-bridge-0
 ```
