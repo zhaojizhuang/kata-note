@@ -123,5 +123,5 @@ mkdir tmp2
 cp -ar tmp3/* tmp2/
 
 cp /data00/code/kata-containers/src/agent/target/debug/kata-agent tmp2/usr/bin/kata-agent
-$GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/image-builder/image_builder.sh -o kata-ubuntu-spdk.image.img /tmp2
+$GOPATH/src/github.com/kata-containers/kata-containers/tools/osbuilder/image-builder/image_builder.sh -o kata-ubuntu-spdk.image.img tmp2
 ```
